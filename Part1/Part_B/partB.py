@@ -72,7 +72,7 @@ for timestamp, buf in pcap:
                         pass
                         
     except Exception as e:
-        # Skip packets that cause errors
+        # Skip packets that cause error
         continue
 
 f.close()
