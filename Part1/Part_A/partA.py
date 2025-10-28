@@ -21,10 +21,12 @@ def pcapAnalyzer(directory):
                     if isinstance(eth.data, dpkt.ip.IP):
                         ip = eth.data
 
+                        # Extract destination IP and timestamp
                         dstIp = socket.inet_ntoa(ip.dst)
                         ts = datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
                         ipTimeStamps.append((dstIp, ts))
 
+                        # Identify protocol and increment counters
                         if isinstance(ip.data, dpkt.icmp.ICMP):
                             protocolCounter['ICMP'] += 1
                         
