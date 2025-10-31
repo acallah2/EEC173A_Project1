@@ -2,9 +2,9 @@ import json
 import socket
 
 data = {
-    "server_ip": "12.0.0.1",
+    "server_ip": "127.0.0.1",
     "server_port": 7000,
-    "message": "ping\n"
+    "message": "ping"
 }
 
 jsonData = json.dumps(data)
