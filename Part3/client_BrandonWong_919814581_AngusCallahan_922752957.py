@@ -1,5 +1,4 @@
 import json
-
 import socket
 
 data = {
@@ -8,14 +7,15 @@ data = {
     "message": "ping\n"
 }
 
-json_data = json.dumps(data)
+jsonData = json.dumps(data)
 
 PROXY_HOST = '127.0.0.1'
 PROXY_PORT = 8000
 
+# Create a TCP socket and connect to the proxy server
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((PROXY_HOST, PROXY_PORT))
-    s.sendall(json_data.encode('utf-8'))
+    s.sendall(jsonData.encode('utf-8'))
 
     receivedData = s.recv(4096)
 

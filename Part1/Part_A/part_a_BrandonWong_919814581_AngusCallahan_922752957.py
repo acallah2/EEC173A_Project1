@@ -70,6 +70,7 @@ if __name__ == "__main__":
     directory = r"c:\Users\Angus\Desktop\EEC_173A\Project1\Part1\Part_A"
     results = pcapAnalyzer(directory)
 
+    # Print common destination IPs
     print("Common Destination IPs:")
     for pcapFile, data in results.items():
         print(f"File: {pcapFile}")
@@ -79,6 +80,7 @@ if __name__ == "__main__":
             timestamp = next(ts for dstIp, ts in data['ipTimeStamps'] if dstIp == ip)
             print(f"  {ip}: {count} packets (first seen: {timestamp})")
 
+    # Print protocol counts
     print("Protocol counts:")
     for pcapFile, data in results.items():
         print(f"File: {pcapFile}")
